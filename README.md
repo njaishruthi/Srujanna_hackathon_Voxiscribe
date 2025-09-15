@@ -20,7 +20,7 @@ Admins (teachers) can:
 
 ## 🛠 Tech Stack
 - **Frontend**: HTML, CSS, JavaScript  
-- **Backend**: Python (Flask)  
+- **Backend**: node.js/react.js
 - **Database**: MySQL  
 - **AI/NLP**: Speech Recognition + Voice Command Processing  
 - **Authentication**: Azure Face API for face login  
