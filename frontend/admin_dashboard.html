@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - VoxiScribe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 20px;
+            padding: 20px;
+            width: 100%;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: 20px;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-cards {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .status-card {
+            background-color: var(--card-background);
+            padding: 20px;
+            border-radius: 10px;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid var(--border-color);
+        }
+
+        .status-card .icon {
+            font-size: 3em;
+            color: var(--secondary-color);
+        }
+
+        .exam-scripts {
+            background-color: var(--card-background);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .exam-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-card {
+            background-color: var(--card-background);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .quick-actions button, .student-access button {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .plagiarism-indicator {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .plagiarism-indicator.pending { background-color: var(--pending-color); }
+        .plagiarism-indicator.low { background-color: var(--success-color); }
+        .plagiarism-indicator.high { background-color: var(--rejected-color); }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="main-content">
+            <div class="dashboard-header">
+                <h2>Admin Dashboard</h2>
+                <a href="index.html" class="text-link">Logout</a>
+            </div>
+            <div class="status-cards">
+                <div class="status-card">
+                    <div>Total Scripts</div>
+                    <div>4</div>
+                </div>
+                <div class="status-card">
+                    <div>Evaluated</div>
+                    <div>0</div>
+                </div>
+                <div class="status-card">
+                    <div>Pending</div>
+                    <div>4</div>
+                </div>
+                <div class="status-card">
+                    <div>Waiting for Access</div>
+                    <div>0</div>
+                </div>
+            </div>
+            <div class="exam-scripts">
+                <h3>Exam Scripts</h3>
+                <p class="text-muted">Click to view and evaluate student answers</p>
+                <div class="exam-item">
+                    <div>
+                        <h4>jai</h4>
+                        <p class="text-muted">maths</p>
+                    </div>
+                    <div>
+                        <span class="plagiarism-indicator pending">Pending</span>
+                        <p class="text-muted">Plagiarism: 45%</p>
+                    </div>
+                    <button class="btn-primary view-script-btn" data-script-id="123">View</button>
+                    <button class="btn-secondary check-plagiarism-btn" data-script-id="123">Check Plagiarism</button>
+                </div>
+                <div class="exam-item">
+                    <div>
+                        <h4>jai</h4>
+                        <p class="text-muted">maths</p>
+                    </div>
+                    <div>
+                        <span class="plagiarism-indicator pending">Pending</span>
+                        <p class="text-muted">Plagiarism: 39%</p>
+                    </div>
+                    <button class="btn-primary view-script-btn" data-script-id="124">View</button>
+                    <button class="btn-secondary check-plagiarism-btn" data-script-id="124">Check Plagiarism</button>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="sidebar-card student-access">
+                <h3>Student Access</h3>
+                <p>Admit students to take exams</p>
+                <p class="text-muted">No students waiting for access.</p>
+            </div>
+            <div class="sidebar-card quick-actions">
+                <h3>Quick Actions</h3>
+                <button class="btn-primary" id="create-exam-btn">Create Exam</button>
+                <button class="btn-primary" id="generate-results-btn">Generate Results</button>
+            </div>
+        </div>
+    </div>
+    <script src="admin_dashboard_scripts.js"></script>
+</body>
+</html>

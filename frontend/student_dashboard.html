@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - VoxiScribe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .dashboard-container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            flex-wrap: wrap;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .status-cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .status-card {
+            background-color: var(--card-background);
+            padding: 20px;
+            border-radius: 10px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .available-exams, .recent-results {
+            background-color: var(--card-background);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .exam-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .exam-item:last-child {
+            border-bottom: none;
+        }
+
+        .exam-item .details {
+            text-align: left;
+        }
+
+        .exam-item .status {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <a href="index.html" class="text-link">← Back to Dashboard</a>
+            <h2>Student Dashboard</h2>
+            <a href="index.html" class="text-link">Logout</a>
+        </header>
+        <div class="main-content">
+            <div class="status-cards">
+                <div class="status-card">
+                    <div>Available Exams</div>
+                    <div>4</div>
+                </div>
+                <div class="status-card">
+                    <div>Completed Exams</div>
+                    <div>2</div>
+                </div>
+                <div class="status-card">
+                    <div>Average Score</div>
+                    <div>NaN%</div>
+                </div>
+                <div class="status-card">
+                    <div>Exam Access</div>
+                    <div style="color: var(--success-color);">Granted</div>
+                </div>
+            </div>
+            <div class="available-exams">
+                <h3>Available Exams</h3>
+                <p class="text-muted">Click to request access</p>
+                <div class="exam-item" data-exam-id="1">
+                    <div class="details">
+                        <h4>Maths</h4>
+                        <p class="text-muted">60 min | 4 questions</p>
+                    </div>
+                    <button class="btn-primary request-access-btn">Request Access</button>
+                </div>
+                <div class="exam-item" data-exam-id="2">
+                    <div class="details">
+                        <h4>Basics</h4>
+                        <p class="text-muted">60 min | 1 questions</p>
+                    </div>
+                    <button class="btn-primary request-access-btn">Request Access</button>
+                </div>
+            </div>
+            <div class="recent-results">
+                <h3>Recent Results</h3>
+                <p class="text-muted">Your latest exam performances</p>
+                <div class="exam-item">
+                    <div class="details">
+                        <h4>maths</h4>
+                        <p class="text-muted">9/14/2025</p>
+                    </div>
+                    <span class="status">Pending</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="dashboard_scripts.js"></script>
+</body>
+</html>

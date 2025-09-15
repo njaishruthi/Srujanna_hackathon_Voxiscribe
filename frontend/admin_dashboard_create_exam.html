@@ -1,0 +1,17 @@
+document.getElementById('add-question-btn').addEventListener('click', () => {
+    const questionsContainer = document.getElementById('questions-container');
+    const questionCount = questionsContainer.children.length + 1;
+    const newQuestionDiv = document.createElement('div');
+    newQuestionDiv.classList.add('question-item');
+    newQuestionDiv.innerHTML = `
+        <span>${questionCount}.</span>
+        <input type="text" class="form-control" placeholder="Enter text for question ${questionCount}" required>
+        <button type="button" class="remove-btn">X</button>
+    `;
+    questionsContainer.appendChild(newQuestionDiv);
+
+    // Add event listener for the new remove button
+    newQuestionDiv.querySelector('.remove-btn').addEventListener('click', (e) => {
+        e.target.closest('.question-item').remove();
+    });
+});

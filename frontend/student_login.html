@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login - VoxiScribe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-form" id="login-form-container">
+        <a href="index.html" class="text-link">← Back to Home</a>
+        <h2 class="text-center">Welcome Back</h2>
+        <h2>Student login</h2>
+        <p class="text-center text-muted">Enter your credentials to continue</p>
+        <form id="student-login-form">
+            <div class="form-group">
+                <input type="email" id="email" class="form-control" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" class="form-control" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn-primary">Continue</button>
+        </form>
+        <p class="text-center text-muted">Don't have an account? <a href="student_register.html" class="text-link">Register here</a></p>
+    </div>
+
+    <div id="biometric-verification" class="auth-form" style="display: none;">
+        <h3 class="text-center" id="biometric-header">Face Verification</h3>
+        <p class="text-center text-muted" id="biometric-text">Position your face in front of the camera for verification</p>
+        <div class="biometric-section">
+            <video id="webcam-stream" class="video-placeholder" autoplay></video>
+            <audio id="audio-playback" style="display:none;" controls></audio>
+            <button id="biometric-button" class="btn-primary">Start Face Verification</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
